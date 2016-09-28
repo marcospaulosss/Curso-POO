@@ -1,0 +1,65 @@
+/* tables */
+table.tablesorter {
+	font-family:tahoma;
+	margin:10px 0pt 15px;
+	font-size: 11pt;
+	text-align: center;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #333333;
+        color: #fff;
+	font-size: 12pt;
+        text-align: center;
+}
+table.tablesorter thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #000;
+	vertical-align: middle;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#FF9966;
+}
+
+table.tablesorter tbody tr{
+    //background-color: #FFCC66;
+}
+
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+
+.linha_impar{
+    background-color: #FFCC66;
+}
+
+.linha_par{
+    background-color:#FF9966;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: #8dbdd8;
+  cursor: pointer;
+}
+
+.img_pessoa{height: 50px;}
+
+@media screen and (max-width: 480px) { 
+    table.tablesorter {
+	font-size:9pt;
+    }
+    
+    table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	font-size: 9pt;
+    }
+}
