@@ -14,6 +14,7 @@ $(document).ready(function(){
                 $("#cpf").text("CPF: "+$(this).find(".cpf").text());
                 $("#end").text("END: "+$(this).find(".end").text());
                 $("#cel").text("CEL: "+$(this).find(".cel").text());
+                $("#end_cobranca").text($(this).find(".endCobranca").text());
                 $("#modal-informacao").modal();
             });
             
