@@ -1,9 +1,9 @@
 <?php
-require_once './Controller/Controller.php';
-$controller = new Controller();
+define('CLASS_DIR', 'src/');
+set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
+spl_autoload_register();
 
-
-
+$controller = new MRC\Controller\Controller();
 $controller->InserirClientes();
 
 

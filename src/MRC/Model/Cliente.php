@@ -1,5 +1,7 @@
 <?php
 
+namespace MRC\Model;
+
 class Cliente {
     protected $nome;
     protected $documento;

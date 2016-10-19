@@ -1,15 +1,16 @@
 <?php
 
+namespace MRC\Controller;
+
+use MRC\Model\ClientePessoaFisica;
+use MRC\Model\ClientePessoaJuridica;
+
 class Controller {
     function __construct() {
         
     }
     
     public function InserirClientes() {
-        require_once 'Model/Cliente.php';
-        require_once 'Model/ClienteInterface.php';
-        require_once 'Model/ClientePessoaFisica.php';
-        require_once 'Model/ClientePessoaJuridica.php';
         $clientes = array();
         
         for ($i=0;$i<15;$i++){
@@ -81,6 +82,6 @@ class Controller {
             $i++;
         }
         
-        include_once 'View/Listagem.phtml';
+        include_once 'src/MRC/View/Listagem.phtml';
     }
 }
