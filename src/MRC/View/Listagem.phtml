@@ -32,7 +32,7 @@
                             <div class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
                                     <li>
-                                        <a href="#"></a>
+                                        <a href="#" data-toggle="modal" data-target="#modalIncluir">Incluir</a>
                                     </li>
                                 </ul>
                             </div>
@@ -48,7 +48,7 @@
                     <table class="table table-hover col-lg-12 tablesorter" id="tb_clientes">
                         <thead>
                             <tr>
-                                <th class="col-lg-1">#</th>
+                                <th class="col-lg-1">Identificador</th>
                                 <th class="col-lg-8">Nome</th>
                                 <th class="col-lg-2">Tipo</th>
                                 <th class="col-lg-1">Estrelas</th>
@@ -56,23 +56,37 @@
                         </thead>
                         <tbody>
                 <?php
-                    $i=1;
-                    foreach ($clientes as $cliente) {
+                    foreach ($resulPessoaFisica as $cliente) {
                 ?>
                             <tr>
-                                <td><?php echo $i;?></td>
-                                <td class="nome"><?php echo $cliente->getNome();?></td>
-                                <td class="tipo"><?php echo $cliente->getTipo();?></td>
-                                <td class="tipo"><?php echo $cliente->getImportancia();?></td>
-                                <td class="hidden cpf"><?php echo $cliente->getDocumento();?></td>
-                                <td class="hidden end"><?php echo $cliente->getEndereco();?></td>
-                                <td class="hidden cel"><?php echo $cliente->getTelefone();?></td>
-                                <td class="hidden endCobranca"><?php echo $cliente->getEndereço_cobranca();?></td>
+                                <td><?php echo $cliente->ID_CLIENTE;?></td>
+                                <td class="nome"><?php echo $cliente->NOME;?></td>
+                                <td class="tipo">FISICO</td>
+                                <td class="tipo"><?php echo $cliente->IMPORTANCIA;?></td>
+                                <td class="hidden cpf"><?php echo $cliente->DOCUMENTO;?></td>
+                                <td class="hidden end"><?php echo $cliente->ENDERECO;?></td>
+                                <td class="hidden cel"><?php echo $cliente->TELEFONE;?></td>
+                                <td class="hidden endCobranca"><?php echo $cliente->ENDERECO_COBRANCA;?></td>
                             </tr>
                 <?php
-                        $i++;
+                    }
+                    
+                    foreach ($resulPessoaJuridica as $cliente) {
+                ?>
+                            <tr>
+                                <td><?php echo $cliente->ID_CLIENTE;?></td>
+                                <td class="nome"><?php echo $cliente->NOME;?></td>
+                                <td class="tipo">JURIDICO</td>
+                                <td class="tipo"><?php echo $cliente->IMPORTANCIA;?></td>
+                                <td class="hidden cpf"><?php echo $cliente->DOCUMENTO;?></td>
+                                <td class="hidden end"><?php echo $cliente->ENDERECO;?></td>
+                                <td class="hidden cel"><?php echo $cliente->TELEFONE;?></td>
+                                <td class="hidden endCobranca"><?php echo $cliente->ENDERECO_COBRANCA;?></td>
+                            </tr>
+                <?php
                     }
                 ?>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -97,6 +111,64 @@
                                 <p class="col-lg-12" id="cel">End Cobrança</p>
                                 <p class="col-lg-12" id="end_cobranca"></p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="modais">
+            <div class="modal fade" id="modalIncluir" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Formulario de Inclusão</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form name="frm_inclusao" id="frm_inclusao">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">Nome:</label>
+                                    <input type="text" name="txt_nome" id="txt_nome" placeholder="ex: Marcos Paulo de Sousa Santos" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">Pessoa:</label>
+                                    <input type="radio" name="rd_tipo" id="rd_tipo" value="1" checked="checked"/> FÍSICA
+                                    <input type="radio" name="rd_tipo" id="rd_tipo" value="2"/> JURÍDICA
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">Documento:</label>
+                                    <input type="text" name="txt_doc" id="txt_doc" placeholder="ex: 334.758.268-36" class="form-control" style="width: 50%;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">Endereço:</label>
+                                    <input type="text" name="txt_end" id="txt_end" placeholder="ex: Rua Francisco Rebelo 620 - Vila Califórnia - São Paulo" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">Endereço de Cobrança:</label>
+                                    <input type="text" name="txt_end" id="txt_end" placeholder="ex: Rua Francisco Rebelo 620 - Vila Califórnia - São Paulo" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">Telefone:</label>
+                                    <input type="text" name="txt_tel" id="txt_tel" placeholder="ex: 11984480638" class="form-control" style="width: 50%;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">Importancia:</label>
+                                    <div class="form-group" id="importancia" style="font-size: 25px;">
+                            <?php
+                                for($i=1; $i<=5; $i++){
+                            ?>
+                                        <span class="glyphicon glyphicon-star-empty" id="<?php echo $i;?>"></span>
+                            <?php
+                                }
+                            ?>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Incluir</button>
                         </div>
                     </div>
                 </div>

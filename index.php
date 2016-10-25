@@ -4,7 +4,7 @@ set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
 spl_autoload_register();
 
 $controller = new MRC\Controller\Controller();
-$controller->InserirClientes();
+$controller->ListarClientes();
 
 
 

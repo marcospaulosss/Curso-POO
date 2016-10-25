@@ -14,6 +14,9 @@ class ClientePessoaFisica extends Cliente implements ClienteInterface {
     
     private $endereço_cobranca;
 
+    
+    function __construct($tabela) {
+    }
 
     public function getImportancia() {
         return rand(1, 5);

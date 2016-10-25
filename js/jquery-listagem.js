@@ -1,6 +1,21 @@
 $(document).ready(function(){
     //RESPNSAVEL PELA DEMONSTRAÇÃO DOS DADOS DO CLIENTE//
     
+    $("#importancia span").click(function(){
+        var id_click = $(this).attr('id');
+        $("#importancia span").each(function(){
+            
+            $(this).removeClass("glyphicon-star");
+            $(this).addClass("glyphicon-star-empty");
+        
+            var id = parseInt($(this).attr("id"));
+            if(id <= id_click){
+                $(this).removeClass("glyphicon-star-empty");
+                $(this).addClass("glyphicon-star");
+            }
+        });
+    });
+    
     $("#tb_clientes tbody tr")
             .mouseover(function(){
                 $(this).css({

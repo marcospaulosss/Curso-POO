@@ -4,9 +4,17 @@ namespace MRC\Model;
 
 use MRC\Model\Cliente;
 use MRC\Model\ClienteInterface;
+use MRC\Model\BDClientes;
 
 class ClientePessoaJuridica extends Cliente implements ClienteInterface{
     private $endereço_cobranca;
+    
+    function __construct($tabela) {
+        $this->tabela = $tabela;
+        
+        //Conexao com o banco de dados//
+        $this->conexao = BDClientes::getConexao();
+    }
     
     public function getImportancia() {
         return rand(1, 5);

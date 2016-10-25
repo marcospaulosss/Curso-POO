@@ -2,12 +2,23 @@
 
 namespace MRC\Model;
 
+
 class Cliente {
     protected $nome;
     protected $documento;
     protected $endereco;
     protected $telefone;
     protected $tipo;
+    
+    protected $tabela, $conexao;
+    
+    public final function findAll($tipo) {
+        $select = "SELECT * FROM $this->tabela WHERE TIPO = :tipo";
+        $result = $this->conexao->prepare($select);
+        $result->bindParam(':tipo', $tipo, \PDO::PARAM_INT);
+        $result->execute();
+        return $result->fetchAll(\PDO::FETCH_OBJ);
+    }
     
     function getNome() {
         return $this->nome;
@@ -53,6 +64,18 @@ class Cliente {
         $this->tipo = $tipo;
         return $this;
     }
+    function getTabela() {
+        return $this->tabela;
+    }
+
+    function getConexao() {
+        return $this->conexao;
+    }
+
+    function setTabela($tabela) {
+        $this->tabela = $tabela;
+    }
+
 
 
 }
