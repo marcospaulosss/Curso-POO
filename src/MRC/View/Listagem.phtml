@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="control-label">Endereço de Cobrança:</label>
-                                    <input type="text" name="txt_end" id="txt_end" placeholder="ex: Rua Francisco Rebelo 620 - Vila Califórnia - São Paulo" class="form-control">
+                                    <input type="text" name="txt_end_cob" id="txt_end_cob" placeholder="ex: Rua Francisco Rebelo 620 - Vila Califórnia - São Paulo" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="control-label">Telefone:</label>
@@ -168,7 +168,38 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Incluir</button>
+                            <button type="button" class="btn btn-primary" id="incluir">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        <!-- barra de progresso-->
+            <div class="modal fade" tabindex="-1" id="modal_progresso">
+                <div class="modal-open">
+                    <div class="col-lg-offset-5 col-lg-2 col-xs-offset-3 col-xs-6" id="posicao_modal_aguarde">
+                        <div class="well text-center">
+                            <img src="imagem/aguarde.gif" id="img_progresso"/>
+                            <h4>Aguarde!!!</h4>
+                        </div>
+                    </div>
+                </div><!-- /.modal-dialog -->
+            </div>
+        
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal_alerta">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content alert-warning">
+                        <div class="modal-header">
+                            <a href="index.php" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                            <button type="button" class="close hide" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Alerta!</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h4></h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="index.php" type="button" class="btn btn-primary">ok</a>
+                            <button type="button" class="btn btn-primary hide" data-dismiss="modal">ok</button>
                         </div>
                     </div>
                 </div>

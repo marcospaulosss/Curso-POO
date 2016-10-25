@@ -12,27 +12,30 @@ use MRC\Model\ClienteInterface;
  */
 class ClientePessoaFisica extends Cliente implements ClienteInterface {
     
-    private $endereço_cobranca;
+    private $endereço_cobranca, $importancia;
 
     
-    function __construct($tabela) {
-    }
-
-    public function getImportancia() {
-        return rand(1, 5);
+    function __construct() {
     }
     
     public function EnderecoCobranca($end) {
         $this->endereço_cobranca = $end;
         return $this;
     }
+
+    public function Importancia($importancia) {
+        $this->importancia = $importancia;
+        return $this;
+    }
+
     function getEndereço_cobranca() {
         return $this->endereço_cobranca;
     }
 
-    function setEndereço_cobranca($endereço_cobranca) {
-        $this->endereço_cobranca = $endereço_cobranca;
+    function getImportancia() {
+        return $this->importancia;
     }
 
 
+    
 }

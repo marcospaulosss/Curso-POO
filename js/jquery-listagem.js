@@ -1,6 +1,53 @@
 $(document).ready(function(){
     //RESPNSAVEL PELA DEMONSTRAÇÃO DOS DADOS DO CLIENTE//
     
+    //BOTAO DE INCLUIR NOVO CLIENTE/
+    $("#incluir").click(function(){
+        //VERIFICANDO A QUANTIDADE DE ESTRELAS SELECIONADAS//
+        var n = 0;
+        $("#importancia .glyphicon-star").each(function(){
+            n++;
+        });
+        
+        var frm = $("#frm_inclusao").serialize();
+        frm = frm+"&txt_inportancia="+n;
+        
+        $.ajax({
+            Type: 'Post',
+            url: 'index.php?acao=ActionIncluir',
+            dataType: 'json',
+            data: frm,
+            beforeSend: function (xhr) {
+                $("#modal_progresso").modal();
+            },
+            success: function (data, textStatus, jqXHR) {
+//                document.write(data);
+                
+                if(data.number == 0){
+                    $("#modal_alerta .modal-body h4").text(data.msg);
+                    $("#modal_alerta .modal-content").removeClass("alert-warning")
+                            .addClass("alert-success");
+                    
+                }else{
+                    $("#modal_alerta .modal-body h4").text(data.msg);
+                    $("#modal_alerta .modal-footer a").addClass('hide');
+                    $("#modal_alerta .modal-footer button").removeClass('hide');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                for(i in jqXHR) {
+                    if(i!="channel")
+                    document.write(i +" : " + jqXHR[i] +"<br>");
+                }
+            },
+            complete: function (jqXHR, textStatus) {
+                $("#modal_progresso").modal('hide');
+                $("#modalIncluir").modal('hide');
+                $("#modal_alerta").modal();
+            }
+        });
+    });
+    
     $("#importancia span").click(function(){
         var id_click = $(this).attr('id');
         $("#importancia span").each(function(){

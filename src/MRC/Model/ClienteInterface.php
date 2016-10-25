@@ -3,7 +3,7 @@
 namespace MRC\Model;
 
 interface ClienteInterface {
-    public function getImportancia();
+    public function Importancia($importancia);
     
     public function EnderecoCobranca($end);
 }

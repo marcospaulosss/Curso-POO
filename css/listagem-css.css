@@ -2,3 +2,6 @@
 
 #tb_clientes th{ text-align: left;}
 
+/*POSIÇÃO DO MODAL DE PROGRESSO*/
+#posicao_modal_aguarde{margin-top: 20%; width: 200px; height: 100px;}
+#img_progresso{width: 80px; height: 80px;}
